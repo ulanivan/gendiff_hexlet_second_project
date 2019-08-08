@@ -1,0 +1,14 @@
+{
+  "name": "gendiff-project",
+  "bin": {
+    "gendiff": "src/bin/gendiff.js"
+  },
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "https://github.com/ulanivan",
+  "license": "ISC"
+}
