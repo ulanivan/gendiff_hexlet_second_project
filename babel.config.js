@@ -1,3 +1,9 @@
-const presets = ['@babel/env', '@babel/preset-react'];
-
-module.exports = { presets };
+module.exports = {
+  presets: [
+    ['@babel/env', {
+      targets: {
+        node: 'current',
+      },
+    }],
+  ],
+};
