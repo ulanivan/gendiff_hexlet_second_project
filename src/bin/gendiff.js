@@ -1,3 +1,13 @@
 #!/usr/bin/env node
 
-console.log('Hello World!');
+const program = require('commander');
+
+program
+  .version('1.0.0')
+  .description('Compares two configuration files and shows a difference.')
+  .arguments('<firstConfig> <secondConfig>')
+  .option('-f, --format [type]', 'Output format');
+
+program.parse(process.argv);
+
+if (program.format) console.log([program.format]);
