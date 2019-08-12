@@ -34,6 +34,7 @@ const genDiff = (pathToFile1, pathToFile2) => {
   }, []);
 
   const result = conversion.map(el => el.join(' '));
+  console.log(result);
   return result;
 };
 
