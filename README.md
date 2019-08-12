@@ -6,4 +6,4 @@
 
 How to use:
 
-<a href="https://asciinema.org/a/17wkAyY9PGPb46lbnPpO4HfW7±"></a>
+[![asciicast](https://asciinema.org/a/17wkAyY9PGPb46lbnPpO4HfW7.svg)](https://asciinema.org/a/17wkAyY9PGPb46lbnPpO4HfW7)
