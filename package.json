@@ -1,14 +1,14 @@
 {
-  "name": "gendiff-project",
+  "name": "gendiff-project-ulanivan",
   "bin": {
-    "gendiff": "src/bin/gendiff.js"
+    "gendiff": "dist/bin/gendiff.js"
   },
   "files": [
     "dist"
   ],
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
@@ -17,15 +17,18 @@
   "author": "https://github.com/ulanivan",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-plugin-import": "^2.18.2",
+    "jest": "^24.8.0"
+  },
+  "dependencies": {
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "babel-eslint": "^10.0.2",
-    "eslint": "^6.1.0",
-    "eslint-config-airbnb-base": "^13.2.0",
-    "eslint-plugin-import": "^2.18.2"
-  },
-  "dependencies": {
-    "commander": "^2.20.0"
+    "babel-jest": "^24.8.0",
+    "commander": "^2.20.0",
+    "lodash": "^4.17.15"
   }
 }
