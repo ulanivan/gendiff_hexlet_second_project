@@ -1,41 +1,39 @@
 import _ from 'lodash';
+import path from 'path';
 import fs from 'fs';
+import getParser from './parsers';
 
-const buildNode = (typeOperation, keyName, oldValue, newValue) => ([
-  typeOperation,
-  keyName,
-  oldValue,
-  newValue,
-]);
+const takeDataFile = (pathToData) => {
+  const formatFile = path.extname(pathToData);
+  const parseData = getParser(formatFile);
+  return parseData(fs.readFileSync(pathToData, 'utf-8'));
+};
+
 
 const genDiff = (pathToFile1, pathToFile2) => {
-  const dataFirstFile = JSON.parse(fs.readFileSync(pathToFile1, 'utf-8'));
-  const dataSecondFile = JSON.parse(fs.readFileSync(pathToFile2, 'utf-8'));
+  const dataFirstFile = takeDataFile(pathToFile1);
+  const dataSecondFile = takeDataFile(pathToFile2);
 
   const dataKeys = _.union(Object.keys(dataFirstFile), Object.keys(dataSecondFile));
 
-  const conversion = dataKeys.reduce((acc, key) => {
+  return dataKeys.reduce((acc, key) => {
     const dataFirstValue = dataFirstFile[key];
     const dataSecondValue = dataSecondFile[key];
 
     if (dataFirstValue === dataSecondValue) {
-      return [...acc, buildNode(key, dataFirstValue)];
+      return acc.concat(key, ': ', dataFirstValue);
     }
 
     if (_.has(dataFirstFile, key) && _.has(dataSecondFile, key)) {
-      return [...acc, buildNode('-', key, dataFirstValue), buildNode('+', key, dataSecondValue)];
+      return acc.concat('\n + ', key, ': ', dataSecondValue, '\n - ', key, ': ', dataFirstValue);
     }
 
     if (!_.has(dataFirstFile, key) && _.has(dataSecondFile, key)) {
-      return [...acc, buildNode('+', key, dataSecondValue)];
+      return acc.concat('\n + ', key, ': ', dataSecondValue);
     }
 
-    return [...acc, buildNode('-', key, dataFirstValue)];
-  }, []);
-
-  const result = conversion.map(el => el.join(' '));
-  console.log(result);
-  return result;
+    return acc.concat('\n - ', key, ': ', dataFirstValue);
+  }, '');
 };
 
 export default genDiff;
