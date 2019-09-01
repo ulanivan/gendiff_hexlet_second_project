@@ -8,6 +8,4 @@
 
 How to use:
 
-[![asciicast](https://asciinema.org/a/17wkAyY9PGPb46lbnPpO4HfW7.svg)](https://asciinema.org/a/17wkAyY9PGPb46lbnPpO4HfW7)
-
-[![asciicast](https://asciinema.org/a/jEjp5yybWNf86zTpAyA63KJUF.svg)](https://asciinema.org/a/jEjp5yybWNf86zTpAyA63KJUF)
+[![asciicast](https://asciinema.org/a/xpPPp2cY2RpeiROUt5dSzWXZ5.svg)](https://asciinema.org/a/xpPPp2cY2RpeiROUt5dSzWXZ5)
