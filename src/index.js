@@ -4,7 +4,6 @@ import getParser from './parsers';
 import buildTree from './buildTree';
 import selectFormat from './formatters';
 
-
 const takeDataFile = (pathToData) => {
   const formatFile = path.extname(pathToData);
   const parseData = getParser(formatFile);

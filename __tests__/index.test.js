@@ -2,6 +2,13 @@ import fs from 'fs';
 import path from 'path';
 import genDiff from '../src';
 
+test('genDiffFlatFile', () => {
+  const before = path.resolve(__dirname, '__fixtures__', 'flatBefore.json');
+  const after = path.resolve(__dirname, '__fixtures__', 'flatAfter.json');
+  const resultString = '{\n    host: hexlet.io\n  - timeout: 50\n  + timeout: 20\n  - proxy: 123.234.53.22\n  - follow: false\n  + verbose: true\n}';
+  expect(genDiff(before, after)).toEqual(resultString);
+});
+
 test.each(['.json', '.yml', '.ini'])('genDiffPlain', (e) => {
   const before = path.resolve(__dirname, '__fixtures__', `before${e}`);
   const after = path.resolve(__dirname, '__fixtures__', `after${e}`);
