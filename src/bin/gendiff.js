@@ -8,6 +8,6 @@ program
   .arguments('<firstConfig> <secondConfig>')
   .option('-f, --format [type]', 'Output format')
   .action((pathToFirstFile, pathToSecondFile) => {
-    console.log(genDiff(pathToFirstFile, pathToSecondFile));
+    console.log(genDiff(pathToFirstFile, pathToSecondFile, program.format));
   })
   .parse(process.argv);
