@@ -1,6 +1,6 @@
 import plain from './plain';
-import standard from './standard';
-import json from './renderJson';
+import standard from './tree';
+import json from './json';
 
 const rendererDispatcher = {
   plain,

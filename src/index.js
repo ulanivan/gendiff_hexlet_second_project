@@ -5,7 +5,7 @@ import buildTree from './buildTree';
 import selectFormat from './formatters';
 
 const takeDataFile = (pathToData) => {
-  const formatFile = path.extname(pathToData);
+  const formatFile = path.extname(pathToData).slice(1);
   const parseData = getParser(formatFile);
   return parseData(fs.readFileSync(pathToData, 'utf-8'));
 };
