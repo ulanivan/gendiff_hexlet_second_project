@@ -1,5 +1,3 @@
-import _ from 'lodash';
-
 export default (ast) => {
   const getSpace = depth => '  '.repeat(depth);
 
@@ -34,6 +32,5 @@ export default (ast) => {
     });
 
   const result = render(ast).join('\n');
-  // console.log(result);
   return `{\n${result}\n}`;
 };
