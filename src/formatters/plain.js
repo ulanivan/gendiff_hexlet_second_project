@@ -11,13 +11,13 @@ const dispatcher = {
   unchange: () => null,
   upgrade: (node, head) => `Property ${getHeadKey(head, node.keyName)} was updated. From ${checkComplexValue(node.oldVal)} to ${checkComplexValue(node.newVal)}`,
   passforchildren: (node, head, render) => (
-    _.flatten(render(node.children, [...head, node.keyName]))),
+    render(node.children, [...head, node.keyName])),
 };
 
 export default (ast) => {
   const iter = (nodes, head = []) => nodes.map(node => dispatcher[node.type](node, head, iter));
 
-  return _.flatten(iter(ast))
+  return _.flattenDeep(iter(ast))
     .filter(item => item !== null)
     .join('\n');
 };
