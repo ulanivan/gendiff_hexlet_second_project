@@ -2,12 +2,9 @@ export default (ast) => {
   const getSpace = depth => '  '.repeat(depth);
 
   const stringify = (value, depth) => {
-    if (value instanceof Object) {
-      const valueKeys = Object.keys(value);
-      const stringWithNormalizedValuesSpaces = valueKeys.map(key => `${getSpace(depth + 3)}${key}: ${value[key]}\n`);
-      return `{\n${stringWithNormalizedValuesSpaces}${getSpace(depth + 1)}}`;
-    }
-    return value;
+    if (!(value instanceof Object)) return value;
+    const stringWithNormalizedValuesSpaces = Object.keys(value).map(key => `${getSpace(depth + 3)}${key}: ${value[key]}\n`);
+    return `{\n${stringWithNormalizedValuesSpaces}${getSpace(depth + 1)}}`;
   };
   const getStringTypeNode = (node, depth, render) => {
     const {
